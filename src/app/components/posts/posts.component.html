@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Posts
+</h1>
+
+<body>
+    <div class="Wrapper style1">
+        <div class="box">
+            <form #postForm="ngForm" (ngSubmit)="savePost(postForm)">
+                <!-- <label for="namePost">Add a post</label><br /> -->
+                <input class="inpf" ngModel type="text" name="namePost" placeholder="Enter a post ...">
+                <button class="button" type="submit" [disabled]="!postForm.value.namePost"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                </svg>
+            </button>
+            </form>
+
+            <div>
+                <table class="table table-hover" style="background-color: rgba(255, 255, 255, 0.726);">
+                    <thead style="background-color:rgba(245, 86, 171, 0.801); color: white; font-size: 25px;">
+                        <th scope="col"> Post </th>
+                        <th scope="col"> Delete </th>
+                    </thead>
+                    <tbody *ngFor="let post of posts;" style="color: hotpink; font-size: 20px;">
+                        <tr style="text-align: left;">
+                            <td> {{ post.namePost }} </td>
+                            <td> <button class="button" (click)="deletePost(post.id)"> Delete </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

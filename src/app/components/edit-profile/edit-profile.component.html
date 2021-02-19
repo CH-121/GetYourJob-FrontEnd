@@ -1,0 +1,67 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Edit profile
+</h1>
+<div class="wrapper style1">
+    <!-- Form to verify password before editing -->
+    <div class="box">
+        <div *ngIf="!isCorrectPassword">
+            <form #verifForm="ngForm" (ngSubmit)="verifyPassword(verifForm.value.passwordVerif)">
+                <!-- <label for="passwordVerif">Enter your password : </label> <br> -->
+                <!-- Error -->
+                <div *ngIf="errorPassword != ''" style="color: deeppink; margin-bottom: 20px; font-size: 20px; font-weight: 50px;">
+                    {{ errorPassword }}
+                </div>
+                <!-- Password to verify -->
+                <input class="inp" ngModel type="password" name="passwordVerif" placeholder="Your password please !">
+                <br>
+                <!-- Button -->
+                <button type="submit" class="button" [disabled]="!verifForm.value.passwordVerif">Check</button>
+            </form>
+        </div>
+        <!-- Editing form -->
+        <div *ngIf="isCorrectPassword" class="contents order-2 order-md-1">
+            <form class="" #editForm="ngForm" (ngSubmit)="editProfile(editForm)" style="text-align: left;">
+                <!-- Username -->
+                <div>
+                    <label for="username"> Username : </label>
+                    <input class="inpf" [(ngModel)]="user.username" name="username" type="text" placeholder="Enter a username ...">
+                </div>
+                <!-- E-mail -->
+                <div>
+                    <label for="email"> E-mail : </label>
+                    <input class="inpf" [(ngModel)]="user.email" name="email" type="text" placeholder="Enter your email ...">
+                </div>
+                <!-- Adress -->
+                <div>
+                    <label for="adress"> Adress : </label>
+                    <input class="inpf" [(ngModel)]="user.adress" name="adress" type="text" placeholder="Enter your adress ...">
+                </div>
+                <!-- Function -->
+                <div *ngIf="user.userType == 'Enterprise'">
+                    <label for="funct"> Function : </label>
+                    <input class="inpf" [(ngModel)]="user.funct" name="funct" type="text" placeholder="What is your function ?">
+                </div>
+                <!-- Password -->
+                <div>
+                    <label for="password"> Password : </label>
+                    <input class="inpf" ngModel name="password" type="password" placeholder="Enter a password ...">
+                </div>
+                <!-- Password confirmation -->
+                <div>
+                    <label for="passwordConfirmation"> Password confirmation : </label>
+                    <input class="inpf" ngModel name="passwordConfirmation" type="password" placeholder="Re-enter the password ...">
+                </div>
+                <!-- Button -->
+                <div style="text-align: center;">
+                    <button type="submit" class="button" [disabled]="!editForm.value.username || !editForm.value.email || !editForm.value.adress || !editForm.value.password || !editForm.value.passwordConfirmation || (user.userType == 'Enterprise' && !editForm.value.funct)">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

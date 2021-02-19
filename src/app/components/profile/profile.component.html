@@ -1,0 +1,24 @@
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Profile
+</h1>
+<div class="box">
+    <div>
+        <h2> Username : {{ user.username }}</h2>
+    </div>
+    <div>
+        <h2> E-mail : {{ user.email }}</h2>
+    </div>
+    <div>
+        <h2> Adress : {{ user.adress }}</h2>
+    </div>
+    <div *ngIf="user.userType == 'Enterprise'">
+        <h2> Score : {{ user.score }}</h2>
+    </div>
+    <div *ngIf="user.userType == 'Enterprise'">
+        <h2> Function : {{ user.funct }}</h2>
+    </div>
+    <br>
+    <button (click)="edit()" class="button">
+        Edit my profile
+    </button>
+</div>

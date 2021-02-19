@@ -1,0 +1,42 @@
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Announcements
+</h1>
+<div *ngIf="authenticationService.isAdmin()" style="text-align: center;">
+    <button class="button" type="submit" title="Add a new announcement" (click)="addAnnouncement()" style="font-size: 20px; position: absolute; right: 2%; top: 13%; padding: 2px;"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+        </svg>
+    </button>
+</div>
+
+<body>
+    <div class="wrapper style1">
+        <!-- <div id="extra"> -->
+        <!-- <div class="container"> -->
+        <!-- <div class="row no-collapse-1"> -->
+        <!-- <section class="3u" style="width: max-content; margin: auto;"> -->
+        <div class="box" *ngFor="let ann of allAnnouncements;" style="width: 50%; margin: auto; margin-bottom: 50px;">
+            <!-- <div class="box"> -->
+            <h2>
+                {{ ann.title }}
+            </h2>
+            <div>
+                {{ ann.enterprise.username }}
+            </div>
+            <div>
+                {{ ann.date }}
+            </div>
+            <br>
+            <a (click)="description(ann)" title="Click here for more information" class="button">
+                                    More infos
+                                </a>
+
+            <!-- </div> -->
+        </div>
+        <br /><br />
+        <!-- </section> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</body>

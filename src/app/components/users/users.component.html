@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Users
+</h1>
+
+<body>
+    <div class="Wrapper style1">
+        <div class="box">
+            <table class="table table-hover" style="background-color: rgba(255, 255, 255, 0.726);">
+                <thead style="background-color:rgba(245, 86, 171, 0.801); color: white; font-size: 20px;">
+                    <th> Username </th>
+                    <th> E-mail </th>
+                    <th> Adress </th>
+                    <!-- <th> Function </th>
+                <th> Score </th> -->
+                    <th> Categorie </th>
+                    <th> Delete </th>
+                </thead>
+                <tbody *ngFor="let user of users;" style="color: hotpink; font-size: 15px;">
+                    <tr style="text-align: left;">
+                        <td> {{ user.username }} </td>
+                        <td> {{ user.email }} </td>
+                        <td> {{ user.adress }} </td>
+                        <!-- <td> {{ user.funct }} </td>
+                    <td> {{ user.score }} </td> -->
+                        <td> {{ user.userType }} </td>
+                        <td> <button (click)="deleteUser(user.id)"> delete </button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

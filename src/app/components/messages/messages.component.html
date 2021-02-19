@@ -1,0 +1,40 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Messages
+</h1>
+<div class="d-lg-flex half" style="height: max-content;">
+    <!-- Conversation -->
+    <div class="contents order-2 order-md-1" style="width: 70%; height: max-content; margin-right: 10px; background-color: rgba(255, 255, 255, 0.616); position: absolute;right: 0%;">
+        <div *ngFor="let msg of myConvMessages;">
+            <div style="padding: 30px;">
+                <h3>{{ msg.to.username }}</h3>
+                <h5> {{ msg.content }} </h5>
+                <span> {{ msg.dateMsg }} </span>
+            </div>
+        </div>
+        <!-- chat -->
+        <!-- <div>
+            <input type="text" style="width: 90%;">
+            <button style="width: 10%;">
+                <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                send
+            </button>
+        </div> -->
+    </div>
+    <!-- All conversations -->
+    <div class="d-lg-flex half" style="height: max-content; width: 30%;">
+        <div class="bg order-1 order-md-2">
+            <div *ngFor="let conv of myConvNames;">
+                <div style="margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
+                    <!-- <h1> {{ conv }} </h1> -->
+                    <button class="button" type="submit" (click)="openConversation(conv)"> 
+                        {{ conv.to.username }} <br> Show Conversation 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

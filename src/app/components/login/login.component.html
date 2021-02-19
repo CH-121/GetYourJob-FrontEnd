@@ -1,0 +1,36 @@
+<body>
+    <!-- <img class="wave" src="../../../assets/wave.png" /> -->
+    <div class="container">
+        <div class="img">
+            <img src="../../../assets/bg.svg" />
+        </div>
+
+        <div class="login-container">
+            <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+                <img class="avatar" src="../../../assets/avatar.svg" />
+                <h2>Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div>
+                        <h5>Username</h5>
+                        <input ngModel name="username" class="input" type="text" />
+                    </div>
+                </div>
+
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div>
+                        <h5>Password</h5>
+                        <input ngModel name="password" class="input" type="password" />
+                    </div>
+                </div>
+
+                <input type="submit" class="btn" value="Login" />
+            </form>
+        </div>
+    </div>
+</body>

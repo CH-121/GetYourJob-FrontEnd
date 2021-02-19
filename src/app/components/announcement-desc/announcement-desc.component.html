@@ -1,0 +1,32 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    Announcement description
+</h1>
+<div class="Wrapper style1">
+    <div class="box">
+        <!-- <div>
+            {{ myAnnouncement.id }}
+        </div> -->
+        <h2>
+            {{ myAnnouncement.title }}
+        </h2>
+        <div>
+            {{ myAnnouncement.enterprise.username }}
+        </div>
+        <div>
+            {{ myAnnouncement.post.namePost }}
+        </div>
+        <div>
+            {{ myAnnouncement.desc }}
+        </div>
+        <div>
+            {{ myAnnouncement.date }}
+        </div> <br>
+        <button class="button" (click)="contactUs(myAnnouncement.enterprise.id)">
+            Contact us
+        </button>
+    </div>
+</div>

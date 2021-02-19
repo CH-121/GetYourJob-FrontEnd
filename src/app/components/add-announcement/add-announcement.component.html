@@ -1,0 +1,41 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<h1 style="text-align: center; color: white; padding: 40px;">
+    New announcement
+</h1>
+
+<body>
+    <div class="Wrapper style1">
+        <div class="box">
+            <div class="contents order-2 order-md-1">
+                <form #addForm="ngForm" (ngSubmit)="addAnnouncement(addForm)">
+                    <div>
+                        <label for="title"> Title </label> <br>
+                        <input class="inpf" ngModel name="title" id="title" type="text" placeholder="Title here ...">
+                    </div>
+                    <div>
+                        <label for="desc"> Description </label> <br>
+                        <input class="inpf" ngModel name="desc" id="desc" type="textarea" placeholder="Description here ...">
+                    </div>
+                    <div>
+                        <label for="post"> Post</label> <br>
+                        <select class="inpf" ngModel name="post">
+                        <option *ngFor="let post of posts;" [value]="post.id">{{ post.namePost }}</option>
+                    </select>
+                    </div>
+                    <!-- <div>
+                    <label for="dateAn"> Date </label> <br>
+                    <input class="inpf" ngModel name="dateAn" type="datetime-local" id="dateAn">
+                </div> -->
+                    <div>
+                        <button class="button" type="submit" [disabled]="!addForm.value.title || !addForm.value.desc || !addForm.value.post">
+                        Save 
+                    </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
